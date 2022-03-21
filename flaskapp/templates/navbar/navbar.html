@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{{url_for('index')}}">
+          Mapping
+
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a href="#about" class="nav-link smoothScroll">Haqqında</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="#project" class="nav-link smoothScroll">Əlaqə</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="{{url_for('articles')}}" class="nav-link">Meqaleler</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{{url_for('mapdetail')}}" class="nav-link">Data miqrasiyası və xəritələr</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="{{url_for('newarticle')}}" class="nav-link smoothScroll">Yeni meqale</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{url_for('account')}}" class="nav-link">Hesabım</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{url_for('logout')}}" class="nav-link contact">Çıxış</a>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a href="{{url_for('signin')}}" class="nav-link">Data miqrasiyası və xəritələr</a>
+                </li>
+                <li class="nav-item">
+                     <a href="{{url_for('signin')}}" class="nav-link">Sign in</a>
+                 </li>
+
+                <li class="nav-item">
+                    <a href="{{url_for('register')}}" class="nav-link contact">Qeydiyyat</a>
+                </li>
+
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

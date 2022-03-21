@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='articles/css/style.css') }}">
+{% endblock %}
+{% block body %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category}}">
+                    {{message}}
+                    </div>
+                {%endfor%}
+            {% endif %}
+        {% endwith %}
+        {% for article in articles %}
+            <form action="POST" class="display-flex-article-row">
+                <br><br><br><br>
+                <div class="container articles-form flex">
+                    <div class="card">
+                        <div class="card-header">
+                        Featured
+                        </div>
+                        <div class="card-body">
+
+                            <h3 class="card-title">{{ article.articletitle }}</h3>
+                            <h5 class="card-title">
+                                {{ article.author.username }}
+                                <br>
+                                <small class="text-muted">{{ article.date_posted.strftime('%Y-%m-%d') }}</small>
+                            </h5>
+
+                            <a href="{{ url_for('article_content', article_id = article.id) }}" class="btn btn-primary">Etrafli oxu</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+            </form>
+
+        {% endfor %}
+
+{% endblock %}

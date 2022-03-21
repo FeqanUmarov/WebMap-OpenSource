@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='article_content/css/style.css') }}">
+{% endblock %}
+{% block body%}
+<div class="container article_content">
+  <br><br><br><br>
+    <article class="media content-section">
+
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ article_data.author.username }}</a>
+            <small class="text-muted">{{ article_data.date_posted.strftime('%Y-%m-%d') }}</small>
+            {% if article_data.author == current_user %}
+              <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="">Yenile</a>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Sil</button>
+              </div>
+            {% endif %}
+          </div>
+          <h2 class="article-title">{{ article_data.articletitle }}</h2>
+          <p class="article-content">{{ article_data.content }}</p>
+        </div>
+    </article>
+      <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Meqale silinsin?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Bagla</button>
+              <form action="{{ url_for('deletearticle', article_id=article_data.id) }}" method="POST">
+                <input class="btn btn-danger" type="submit" value="Sil">
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <br><br><br><br>
+</div>
+
+{% endblock %}

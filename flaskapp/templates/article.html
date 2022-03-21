@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+{% block body %}
+<div class="container">
+  <br><br><br><br>
+  <h1 class="title">Məqaləni daxil et</h1>
+  <form class="contact-form row display-flex-article" method="POST">
+    {{form.hidden_tag()}}
+      <div class="form-field col-lg-6 row">
+        <div class="col-sm">
+            {{ form.title(class="input-text js-input")}}
+          <label class="label" for="name">Başlıq</label>
+        </div>
+
+      </div>
+      <div class="form-field col-lg-6 row">
+        <div class="col-sm">
+          {{ form.content(class="input-text js-input")}}
+          <label class="label" for="name">Mövzu</label>
+        </div>
+
+      </div>
+
+
+
+    <div class="form-field col-lg-12">
+        {{ form.submit(class="submit-btn") }}
+    </div>
+  </form>
+  <br><br><br><br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gis Academy - Update User Info</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/update_font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/material-design-iconic-font.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/update_animate.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/update_hamburgers.min.css') }}">
+<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/update_select2.min.css') }}">
+<!--===============================================================================================-->	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/update_util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/update_main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="POST" action="">
+					{{form.hidden_tag()}}
+					{% with messages = get_flashed_messages(with_categories=true) %}
+                	{% if messages %}
+                    	{% for category, message in messages %}
+                        	<div class="alert alert-{{ category}}">
+                            	{{message}}
+                        	</div>
+                    	{%endfor%}
+                	{% endif %}
+            		{% endwith %}
+				
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Update Account
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{ form.username(class="input100")}}
+						<span class="focus-input100" data-placeholder="&#xf207;">
+							
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter email">
+						{{ form.email(class="input100")}}
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+				
+					
+
+					
+
+					<div class="container-login100-form-btn">
+						
+						{{ form.submit(class="login100-form-btn") }}
+					</div>
+					<a href="{{url_for('index')}}" class="">Ana sehife</a>
+
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script> \\
+<!--===============================================================================================-->
+
+	<script src="{{ url_for('static', filename='js/animsition.min.js') }}"></script> \\
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> \\
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/update_select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+	
+	<script src="{{ url_for('static', filename='js/daterangepicker.js') }}"></script>
+	
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/countdowntime.js') }}"></script>
+	
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/update_main.js') }}"></script>
+
+</body>
+</html>
